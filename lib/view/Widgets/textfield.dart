@@ -65,7 +65,7 @@ class MyTextField extends StatelessWidget {
           print(answer!.choices[0].text);
           
       ChatModel botMsg =
-          ChatModel(text: answer.choices[0].text, sender: "bot");
+          ChatModel(text: answer.choices[0].text, sender: "Racheal");
           TheController.ChatList.add(botMsg);
 
     });

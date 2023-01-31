@@ -11,10 +11,12 @@ class ChatModel extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       children: [
-        const CircleAvatar(
-          backgroundImage: AssetImage(
-            'lib/Asset/img/bot_profile_Picture.jpg',
-          ),
+         CircleAvatar(
+          backgroundImage:  sender == 'Racheal' ?   const AssetImage(
+         'lib/Asset/img/bot_profile_Picture.jpg' ,
+          ) : const AssetImage(
+       'lib/Asset/img/panda.jpeg' ,
+          ) 
         ),
         const SizedBox(
           width: 10,
