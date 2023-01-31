@@ -9,6 +9,7 @@ class ChatScreen extends StatelessWidget {
   ChatScreen({super.key});
 
   TextEditingController userString = TextEditingController();
+   // ignore: non_constant_identifier_names
    ChatController TheController = Get.put(ChatController());
 
 
@@ -19,14 +20,14 @@ class ChatScreen extends StatelessWidget {
     return SafeArea(
       child: Scaffold(
         appBar: AppBar(
-          title: const Text('AI Friend'),centerTitle: true,backgroundColor: Colors.purple[400],
+          title: const Text('AI Friend'),centerTitle: true,backgroundColor: Color.fromARGB(143, 19, 113, 175),
         ),
         body: Container(
           width: double.infinity,
           height: double.infinity,
-          color: Colors.purple,
+          color: Color.fromARGB(255, 39, 130, 176),
           child: Column(
-            children: [
+            children: [const SizedBox(height: 15,),
               Obx(
                 () =>Flexible(
                     child: ListView.separated(

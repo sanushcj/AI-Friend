@@ -27,25 +27,44 @@ class MyTextField extends StatelessWidget {
       child: Row(
         children: [
           Expanded(
-            child: SizedBox(
-                height: 55,
-                child: CupertinoTextField(
-                  controller: UserString,
-                )),
-          ),
-          IconButton(
+              child: Container(
+            padding: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: Colors.grey[200],
+            ),
+            child: const TextField(
+              decoration: InputDecoration(
+                border: InputBorder.none,
+                hintText: 'Ask your friend',
+              ),
+            ),
+          )),
+          Container(
+            height: 50,
+            width: 50,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: Colors.blue,
+            ),
+            child: IconButton(
+              icon: const Icon(
+                Icons.send,
+                color: Colors.white,
+              ),
               onPressed: () {
                 _sendfunction();
               },
-              icon: const CircleAvatar(radius: 50, child: Icon(Icons.send)))
+            ),
+          )
         ],
       ),
     );
   }
 
   _sendfunction() async {
-   var thetext = UserString.text.trim();
-      UserString.clear();
+    var thetext = UserString.text.trim();
+    UserString.clear();
     var newMsg = ChatModel(
       text: thetext,
       sender: 'Sanush',
@@ -53,21 +72,19 @@ class MyTextField extends StatelessWidget {
     TheController.ChatList.add(newMsg);
 
     final req = CompleteReq(
-        prompt: thetext,
-        model: kTranslateModelV3,
-       );
-                  
+      prompt: thetext,
+      model: kTranslateModelV3,
+    );
 
-    TheController.subscription =  TheController.theAi!
+    TheController.subscription = TheController.theAi!
         .builder(apikey, orgId: "")
         .onCompleteStream(request: req)
         .listen((answer) {
-          print(answer!.choices[0].text);
-          
+      print(answer!.choices[0].text);
+
       ChatModel botMsg =
           ChatModel(text: answer.choices[0].text, sender: "Racheal");
-          TheController.ChatList.add(botMsg);
-
+      TheController.ChatList.add(botMsg);
     });
   }
 }

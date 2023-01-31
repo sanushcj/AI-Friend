@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.ai_bot_chat_application">
+    <uses-permission android:name="android.permission.INTERNET"/>
+
    <application
-        android:label="ai_bot_chat_application"
+        android:label="AI Friend"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

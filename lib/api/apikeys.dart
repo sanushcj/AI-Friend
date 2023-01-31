@@ -1,1 +1,1 @@
-var apikey = "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";
+var apikey = "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";
